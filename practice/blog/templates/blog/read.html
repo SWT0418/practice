@@ -2,6 +2,7 @@
 
 {% block content %}
     <p>{{ blog.title }}</p>
+    <img src="{{ blog.image.url }}" alt="My Image">
     <p>{{ blog.content }}</p>
     <p>{{ blog.reg_date }}</p>
     {% for hashtag in blog.hashtags.all %}

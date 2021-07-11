@@ -1,7 +1,7 @@
 {% extends 'blog/main.html' %}
 
 {% block content %}
-    <form action="{% url 'blog:create' %}" method="post">
+    <form action="{% url 'blog:create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-outline-success">Success</button>

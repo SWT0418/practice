@@ -7,6 +7,7 @@ class Blog(models.Model):
     content = models.TextField()
     reg_date = models.DateTimeField(auto_now_add=True)
     hashtags = models.ManyToManyField('Hashtag', blank=True)
+    image = models.ImageField(upload_to = "images/", blank=True)
 
     def __str__(self):
         return self.title

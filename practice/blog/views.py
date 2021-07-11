@@ -9,7 +9,7 @@ def main(request):
 
 def create(request):
     if request.method == 'POST':
-        form = BlogForm(request.POST)
+        form = BlogForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('blog:main')
@@ -33,7 +33,7 @@ def read(request, blog_pk):
 def update(request, blog_pk):
     blog = get_object_or_404(Blog, id = blog_pk)
     if request.method == 'POST':
-        form = BlogForm(request.POST, instance = blog)
+        form = BlogForm(request.POST, request.FILES, instance = blog)
         if form.is_valid():
             form.save()
             return redirect('blog:read', blog_pk)
